@@ -1,0 +1,73 @@
+﻿@page "/login"
+
+<style>
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+    }
+
+    .login-form {
+        width: 200px;
+        text-align: left;
+    }
+
+    .login-button {
+        background-color: blue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .login-button:hover {
+            background-color: white;
+            color: blue;
+        }
+
+    h1 {
+        color: purple;
+        font-weight: bold;
+        font-size: 50px;
+    }
+</style>
+
+<div class="login-container">
+    <h1>Login</h1>
+
+    <form class="login-form" @onsubmit="OnSubmit">
+        <div style="margin-bottom: 10px;">
+            <label for="username">Username</label>
+            <input type="email" class="form-control" id="username" placeholder="Enter email" name="username" @bind-value="Username">
+        </div>
+
+        <div style="margin-bottom: 10px;">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" @bind-value="Password" placeholder="Password">
+        </div>
+        <button type="submit" class="login-button">Login</button>
+
+        <div style="display: inline-block; vertical-align: top;">
+            <p style="margin-bottom: 0;">Don't have an account? <a href="/signup">Sign up</a></p>
+        </div>
+    </form>
+</div>
+
+@code {
+
+    string Username { get; set; }
+    string Password { get; set; }
+
+    void OnSubmit()
+    {
+        // Xử lý logic đăng nhập
+        // Ví dụ: kiểm tra thông tin đăng nhập với cơ sở dữ liệu
+        // Sau khi đăng nhập thành công, chuyển hướng đến trang chủ
+
+        Console.WriteLine($"Đăng nhập với tên đăng nhập: {Username} và mật khẩu: {Password}");
+    }
+}
